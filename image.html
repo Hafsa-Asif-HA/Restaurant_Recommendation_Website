@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>image</title>
+  <style>
+    img{
+        height: 200px;
+        width: 200px;
+        border: 2px black solid;
+    }
+  </style>
+</head>
+<body>
+    <label>Image Name</label> <input type="text" id="namebox"> <label id="extlab"></label> <br> <br>
+    <img id="myimg"> <label id="upprogress"></label><br> <br>
+
+    <button id="selbtn">Select Image</button>
+    <button id="upbtn">Upload Image</button>
+    <button id="downbtn">Retrieve Image</button>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-analytics.js";
+      
+        const firebaseConfig = {
+          apiKey: "AIzaSyDYWnKiGyi87ah8FX6wdFsSEcaWKDRdFeM",
+          authDomain: "login-1bafa.firebaseapp.com",
+          databaseURL: "https://login-1bafa-default-rtdb.firebaseio.com",
+          projectId: "login-1bafa",
+          storageBucket: "login-1bafa.appspot.com",
+          messagingSenderId: "861300324552",
+          appId: "1:861300324552:web:66de5e09c1267f7f4d0dfd",
+          measurementId: "G-LWLW5FZP1L"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        import {getStorage, ref as sRef}
+        from "https://www.gstatic.com/firebasejs/9.9.0/firebase-storage.js";
+
+
+
+//.................VARIABLE & REFERENCES.......................
+
+var files = [];
+var reader = new FileReader();
+
+var namebox= document.getElementById('namebox');
+var extlab= document.getElementById('extlab');
+var myimg= document.getElementById('myimg');
+var proglab= document.getElementById('upprogress');
+var Selbtn= document.getElementById('selbtn');
+var Upbtn= document.getElementById('upbtn');
+var Downbtn= document.getElementById('downbtn');
+
+var input = document.createElement('input');
+input.type = 'file';
+
+input.onchange = e =>{
+    files = e .target.files;
+
+    var extension = GetFileExt(files[0]);
+    var name = GetFileName(files[0]);
+
+    namebox.value= name;
+    extlab.innerHTML= extension;
+
+    reader.readAsDataURL(files[0]);
+}
+
+    reader.onload= function(){
+        myimg.src=reader.result;
+    }
+
+//.................SELECTION.......................
+
+    Selbtn.onclick = function(){
+        input.click();
+    }
+
+    function GetFileExt(file){
+        var temp = file.name.split('.');
+        var ext = temp.slice((temp.length-1),(temp.length));
+        return '.' + ext[0];
+    }
+    function GetFileName(file){
+        var temp = file.name.split('.');
+        var fname = temp.slice(0,-1).join('.');
+        return fname;
+    }
+
+    //.................UPLOAD.......................
+    async function UploadProcess(){
+        var ImgToUpload = files[0];
+
+        var ImgName = namebox.value + extlab.innerHTML;
+
+        const metaData = {
+            contentType: ImgToUpload.type
+        }
+
+        const storage = getStorage();
+
+        const storageRef = sRef(storage, 'restaurants/'+'Burger O’Clock/' + ImgName);
+
+        const UploadTask = uploadBytesResumanble(storageRef,ImgToUpload, metaData);
+
+        UploadTask.on ('state-changed', (snapshot) =>{
+            var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            proglab.innerHTML = "Upload "+progress+ "%"
+        },
+        (error) =>{
+            alert("ERROR: image not uploaded!");
+        },
+
+        ()=>{
+            getDownloadURL(UploadTask.snapshot.ref).then ((downloadURL)=>{
+                console.log(downloadURL);
+            });
+        }
+
+        );
+    }
+ //.................REAL TIME DATABASE.......................
+            function SaveURLtoRealtimeDB(URL){
+                var name = namebox.value;
+                var ext = extlab.innerHTML;
+
+                set(ref(realdb,'restaurants/'+'Burger O’Clock/'+'ImagesLinks/'+name),{
+                    ImageName: (name+ext),
+                    ImgUrl: URL
+                }
+                );
+            }
+
+//.................GET FROM REAL TIME DATABASE.......................
+             function GetURLfromRealtimeDB(URL){
+                var name = namebox.value;
+                var dbRef = ref(realdb);
+
+                get(child(dbRef,'restaurants/'+'Burger O’Clock/'+'ImagesLinks/'+name)).then((snapshot)=>{
+                    if (snapshot.exists()){
+                        myimg.src = snapshot.val().ImgUrl;
+                    }
+                })
+            }
+
+    Upbtn.onclick = UploadProcess;
+    Downbtn.onclick = GetURLfromRealtimeDB;
+
+      </script>
+</body>  
+  </html>
+
+  
