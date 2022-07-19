@@ -112,9 +112,10 @@
 		</header>
 		<div class="filter-content collapse show" id="collapse_1" >
 			<div class="card-body">
-				<form class="pb-3">
+				
+            <form class="pb-3">
 				<div class="input-group">
-				  <input type="text" class="form-control" id="search-item" onkeyup="search" placeholder="Search">
+				  <input type="text" class="form-control" id="search-item" placeholder="Search" onkeyup="search()">
 				  <div class="input-group-append">
 				    <button class="btn btn-light" type="button"><i class="fa fa-search"></i></button>
 				  </div>
@@ -240,29 +241,7 @@
 				<h6 class="title">More filter </h6>
 			</a>
 		</header>
-		<div class="filter-content collapse in" id="collapse_5" >
-			<div class="card-body">
-				<label class="custom-control custom-radio">
-				  <input type="radio" name="myfilter_radio" checked="" class="custom-control-input">
-				  <div class="custom-control-label">Any condition</div>
-				</label>
-
-				<label class="custom-control custom-radio">
-				  <input type="radio" name="myfilter_radio" class="custom-control-input">
-				  <div class="custom-control-label">Brand new </div>
-				</label>
-
-				<label class="custom-control custom-radio">
-				  <input type="radio" name="myfilter_radio" class="custom-control-input">
-				  <div class="custom-control-label">Used items</div>
-				</label>
-
-				<label class="custom-control custom-radio">
-				  <input type="radio" name="myfilter_radio" class="custom-control-input">
-				  <div class="custom-control-label">Very old</div>
-				</label>
-			</div>card-body.//
-		</div>
+		
 	</article> <!-- filter-group .// -->
 </div> <!-- card.// -->
 
@@ -298,11 +277,12 @@
 				<div class="fix-height">
 					<a href="#" class="title">California Pizza</a>
 					<div class="price-wrap mt-2">
-						<span class="price">$1280</span>
-						<del class="price-old">$1980</del>
-					</div> <!-- price-wrap.// -->
+					<div class="stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>            
 				</div>
-				<a href="restaurant page.html" class="btn btn-block btn-primary">View</a>
+				<a href="read.html">
+				<button class="btn btn-block btn-primary" type="button" onclick="setrestaurant(' California Pizza')">View</button></a>
 			</figcaption>
 		</figure>
 	</div> <!-- col.// -->
@@ -317,10 +297,12 @@
 				<div class="fix-height">
 					<a href="#" class="title">Del Frio</a>
 					<div class="price-wrap mt-2">
-						<span class="price">$1280</span>
-					</div> <!-- price-wrap.// -->
+					<div class="stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>            
 				</div>
-				<a href="restaurant page.html" class="btn btn-block btn-primary">View </a>	
+				<a href="read.html">
+				<button class="btn btn-block btn-primary" type="button" onclick="setrestaurant(' Del Frio')">View</button></a>
 			</figcaption>
 		</figure>
 	</div> <!-- col.// -->
@@ -335,10 +317,12 @@
 				<div class="fix-height">
 					<a href="#" class="title">Clucky's</a>
 					<div class="price-wrap mt-2">
-						<span class="price">$1280</span>
-					</div> <!-- price-wrap.// -->
+					<div class="stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                class="bi bi-star-fill"></i>            
 				</div>
-				<a href="restaurant page.html" class="btn btn-block btn-primary">View </a>	
+				<a href="read.html">
+				<button class="btn btn-block btn-primary" type="button" onclick="setrestaurant('Clucky’s')">View</button></a>
 			</figcaption>
 		</figure>
 	</div> <!-- col.// -->
@@ -353,10 +337,11 @@
 				<div class="fix-height">
 					<a href="#" class="title">Dunkin' Donuts</a>
 					<div class="price-wrap mt-2">
-						<span class="price">$1280</span>
-					</div> <!-- price-wrap.// -->
+					<div class="stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>           
 				</div>
-				<a href="restaurant page.html" class="btn btn-block btn-primary">View </a>	
+				<a href="read.html">
+				<button class="btn btn-block btn-primary" type="button" onclick="setrestaurant('Dunkin’ Donuts')">View</button></a>
 			</figcaption>
 		</figure>
 	</div> <!-- col.// -->
@@ -371,10 +356,11 @@
 				<div class="fix-height">
 					<a href="#" class="title">Burger O'Clock</a>
 					<div class="price-wrap mt-2">
-						<span class="price">$1280</span>
-					</div> <!-- price-wrap.// -->
+					<div class="stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>           
 				</div>
-				<a href="restaurant page.html" class="btn btn-block btn-primary">View </a>	
+				<a href="read.html">
+				<button class="btn btn-block btn-primary" type="button" onclick="setrestaurant(' Burger O’Clock')">View</button></a>
 			</figcaption>
 		</figure>
 	</div> <!-- col.// -->
@@ -389,10 +375,12 @@
 				<div class="fix-height">
 					<a href="#" class="title">Lush Crush</a>
 					<div class="price-wrap mt-2">
-						<span class="price">$1280</span>
-					</div> <!-- price-wrap.// -->
+					<div class="stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                class="bi bi-star-fill"></i>           
 				</div>
-				<a href="restaurant page.html" class="btn btn-block btn-primary">View </a>	
+				<a href="read.html">
+				<button class="btn btn-block btn-primary" type="button" onclick="setrestaurant('Lush Crush')">View</button></a>
 			</figcaption>
 		</figure>
 	</div> <!-- col.// -->
@@ -407,10 +395,12 @@
 				<div class="fix-height">
 					<a href="#" class="title">McDonald's</a>
 					<div class="price-wrap mt-2">
-						<span class="price">$1280</span>
-					</div> <!-- price-wrap.// -->
+					<div class="stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>            
 				</div>
-				<a href="restaurant page.html" class="btn btn-block btn-primary">View </a>	
+				<a href="read.html">
+				<button class="btn btn-block btn-primary" type="button" onclick="setrestaurant('McDonald’s')">View</button></a>
 			</figcaption>
 		</figure>
 	</div> <!-- col.// -->
@@ -423,12 +413,17 @@
 			</div> <!-- img-wrap.// -->
 			<figcaption class="info-wrap">
 				<div class="fix-height">
-					<a href="#" class="title">Sorisso</a>
+					<a href="#" class="title">Sorriso</a>
 					<div class="price-wrap mt-2">
-						<span class="price">$1280</span>
-					</div> <!-- price-wrap.// -->
+					<div class="stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                class="bi bi-star-fill"></i>           
 				</div>
-				<a href="restaurant page.html" class="btn btn-block btn-primary">View </a>	
+				<a href="read.html">
+				<button class="btn btn-block btn-primary" type="button" onclick="setrestaurant('Sorriso')">View</button>
+				
+			</a>
+
 			</figcaption>
 		</figure>
 	</div> <!-- col.// -->
@@ -443,10 +438,13 @@
 				<div class="fix-height">
 					<a href="#" class="title">Ginsoy</a>
 					<div class="price-wrap mt-2">
-						<span class="price">$1280</span>
-					</div> <!-- price-wrap.// -->
+					<div class="stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>            
 				</div>
-				<a href="restaurant page.html" class="btn btn-block btn-primary">View </a>	
+				<a href="read.html">
+				<button class="btn btn-block btn-primary" type="button" onclick="setrestaurant('Ginsoy')">View</button>
+			</a>
 			</figcaption>
 		</figure>
 	</div> <!-- col.// -->
@@ -455,7 +453,7 @@
 </div> <!-- row end.// -->
 
 
-<nav class="mt-4" aria-label="Page navigation sample">
+<nav class="mt-6" aria-label="Page navigation sample">
   <ul class="pagination">
     <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
     <li class="page-item active"><a class="page-link" href="#">1</a></li>
@@ -464,10 +462,54 @@
     <li class="page-item"><a class="page-link" href="#">Next</a></li>
   </ul>
 </nav>
-
+<br><br>
 	</main>
 	</div>
 </div>
+ <!-- ======= Footer ======= -->
+ <footer id="footer">
+    <div class="container">
+      <h3>The Food Guide</h3>
+      <p>Foodies Welcome here</p>
+      <div class="social-links">
+        <a href="https://www.twitter.com/" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="https://www.facebook.com/" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.instagram.com/" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="https://www.skype.com/" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="https://www.linkedin.com/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; Copyright <strong><span>The Food Guide</span></strong>. All Rights Reserved
+      </div>
+      
+    </div>
+  </footer><!-- End Footer -->
+
+
+
+ <!-- The core Firebase JS SDK is always required and must be listed first -->
+ <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+     <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    
+    var firebaseConfig = {
+    apiKey: "AIzaSyDYWnKiGyi87ah8FX6wdFsSEcaWKDRdFeM",
+    authDomain: "login-1bafa.firebaseapp.com",
+    databaseURL: "https://login-1bafa-default-rtdb.firebaseio.com",
+    projectId: "login-1bafa",
+    storageBucket: "login-1bafa.appspot.com",
+    messagingSenderId: "861300324552",
+    appId: "1:861300324552:web:66de5e09c1267f7f4d0dfd",
+    measurementId: "G-LWLW5FZP1L"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+</script>
 <script type="text/javascript" src="read.js"></script>
 <script type="text/javascript" src="filter.js"></script>
 </body>
